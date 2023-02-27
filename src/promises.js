@@ -1,4 +1,4 @@
-const { getDogs, getCats, getBirds, firstPromise, secondPromise } = require('./utils/utilPromises');
+const { getDogs, getCats, getBirds, firstPromise, secondPromise } = require('../utils/utilPromises');
 
 /**
  * Task-1: Create a promise with the resolve state

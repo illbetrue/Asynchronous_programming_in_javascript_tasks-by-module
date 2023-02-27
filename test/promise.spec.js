@@ -5,8 +5,8 @@ const chaiAsPromised = require('chai-as-promised');
 const expect = chai.expect;
 chai.use(chaiAsPromised);
 
-const { promiseResolve, promiseReject, fullPromise, promisesChaining, getAnimals } = require('../promises');
-const { asyncPromiseResolve, asyncPromiseReject, asyncPromiseAll } = require('../asyncAwait');
+const { promiseResolve, promiseReject, fullPromise, promisesChaining, getAnimals } = require('../src/promises');
+const { asyncPromiseResolve, asyncPromiseReject, asyncPromiseAll } = require('../src/asyncAwait');
 
 describe('Promises', () => {
   it('TASK-1: should create a promise that will be resolved', async () => {

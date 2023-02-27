@@ -1,5 +1,5 @@
 const { promiseResolve, promiseReject } = require('./promises');
-const { getDogs, getCats, getBirds } = require('./utils/utilPromises');
+const { getDogs, getCats, getBirds } = require('../utils/utilPromises');
 /**
  * Materials:
  * - https://javascript.info/async-await
