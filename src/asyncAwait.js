@@ -14,9 +14,13 @@ const { getDogs, getCats, getBirds } = require('../utils/utilPromises');
  * @returns {Promise<"Resolved! with async await">}
  *
  */
-async function asyncPromiseResolve() {
-  //PLACE YOUR CODE HERE:
-}
+  async function asyncPromiseResolve() {
+  
+    await promiseResolve();
+  
+    return "Resolved! with async await";
+  }
+
 
 /**
  * TASK-2: Reject the created earlier promiseReject() promise
@@ -24,9 +28,16 @@ async function asyncPromiseResolve() {
  * and modify the message to -> Rejected! with async await
  * @returns {Promise<"Rejected! with async await">}
  */
-async function asyncPromiseReject() {
-  //PLACE YOUR CODE HERE:
-}
+    async function asyncPromiseReject() {
+      try {
+        await promiseReject();
+      } 
+      catch (error) {
+        throw new Error("Rejected! with async await");
+    }
+  }
+
+
 
 /**
  * TASK-3:
@@ -35,9 +46,14 @@ async function asyncPromiseReject() {
  * 3. Return the modified array
  * @returns {Promise<"['DOGS', 'CATS', 'BIRDS']">}
  */
-async function asyncPromiseAll() {
-  //PLACE YOUR CODE HERE:
-}
+  async function asyncPromiseAll() {
+
+    const [dogs, cats, birds] = await Promise.all([getDogs(), getCats(), getBirds()]);
+    const modifiedArray = [dogs.toUpperCase(), cats.toUpperCase(), birds.toUpperCase()];
+
+    return modifiedArray;
+  }
+
 
 module.exports = {
   asyncPromiseResolve,

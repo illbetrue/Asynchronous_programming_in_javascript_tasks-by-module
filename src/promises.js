@@ -7,9 +7,10 @@ const { getDogs, getCats, getBirds, firstPromise, secondPromise } = require('../
  * hint: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/resolve
  */
 
-function promiseResolve() {
-  //PLACE YOUR CODE HERE:
-}
+  function promiseResolve() {
+    return Promise.resolve("Resolved!");
+  }
+
 
 /**
  * Task-2: Create a promise with the reject state
@@ -18,9 +19,10 @@ function promiseResolve() {
  * hint: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/reject
  */
 
-function promiseReject() {
-  //PLACE YOUR CODE HERE:
-}
+  function promiseReject() {
+    return Promise.reject("Rejected!");
+  }
+
 
 /**
  * Task-3: Create a promise with both resolve and reject states
@@ -29,9 +31,19 @@ function promiseReject() {
  * hint: use new Promise()
  */
 
-function fullPromise(param) {
-  //PLACE YOUR CODE HERE:
-}
+  function fullPromise(param) {
+    return new Promise((resolve, reject) => {
+    
+      if (param === true) {
+      
+        resolve("Resolved!");
+      } else {
+      
+        reject("Rejected!");
+      }
+    });
+  }
+
 
 /**
  * Task-4: Chain two promises (firstPromise() and secondPromise() from the './utils/utilPromises' file)
@@ -39,13 +51,21 @@ function fullPromise(param) {
  * Please do the chaining inside of the promisesChaining function (please do NOT use async/await)
  */
 
-function promisesChaining() {
-  let chainingResult = '';
+  function promisesChaining() {
+  
+    return firstPromise()
+      .then(result => {
+       return secondPromise();
+      })
+      .then(result => {
+        return 'Promises chained';
+      })
+      .catch(error => {
+        return 'Error occurred during chaining';
+      });
+  }
 
-  //PLACE YOUR CODE BETWEEN THIS LINE:
 
-  //AND THIS ONE
-}
 
 /**
  * Task-5:
@@ -58,10 +78,13 @@ function promisesChaining() {
  * do NOT use async/await syntax here
  */
 
-function getAnimals() {
-  //PLACE YOUR CODE BETWEEN THIS LINE:
-  //AND THIS ONE
-}
+  function getAnimals() {
+    return Promise.all([getDogs(), getCats(), getBirds()])
+      .then(results => {
+        return results.map(animal => animal.toUpperCase());
+      });
+  }
+
 
 module.exports = {
   promiseResolve,
